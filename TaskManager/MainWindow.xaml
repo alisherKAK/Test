@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="396.234" Width="606.859">
+    <Grid Margin="0,0,-8,-182">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="192*"/>
+            <ColumnDefinition Width="415*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="Azure" HorizontalAlignment="Left" Height="365" Stroke="Black" VerticalAlignment="Top" Width="192"/>
+        <DatePicker Name="operationDatePicker" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="10,24,10,481"/>
+        <materialDesign:TimePicker Is24Hours="True" Name="operationTimePicker" Margin="10,68,82,450"/>
+        <ComboBox Name="operationTypeComboBox" Grid.Column="0" materialDesign:HintAssist.Hint="Operation Type" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="40" Margin="10,84,10,363">
+            <ComboBoxItem IsSelected="True">
+                Download File
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Displace Catalog
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Send Email
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox Name="operationPeriodComboBox" Grid.Column="0" materialDesign:HintAssist.Hint="Operation Type" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="40" Margin="10,128,10,319">
+            <ComboBoxItem IsSelected="True" Content="Onetime"/>
+            <ComboBoxItem Content="Every Day"/>
+            <ComboBoxItem Content="Every Month"/>
+            <ComboBoxItem Content="Every Year"/>
+        </ComboBox>
+        <Separator HorizontalAlignment="Left" Height="32" Margin="7,163,0,0" VerticalAlignment="Top" Width="368" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+
+        <Label Content="From" Grid.Column="1" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Height="40" Width="100"/>
+        <Label Content="To" Grid.Column="1" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Height="40" Width="100"/>
+        <TextBox
+            materialDesign:HintAssist.Hint="Large Font"
+            materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+            Text="Some Text"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            FontSize="14" Grid.Column="1" Margin="115,108,108,399" RenderTransformOrigin="0.5,0.5" Name="fromTextBox">
+        </TextBox>
+        <TextBox
+            materialDesign:HintAssist.Hint="Large Font"
+            materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+            Text="Some Text"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            FontSize="14" Grid.Column="1" Margin="115,159,108,348" RenderTransformOrigin="0.5,0.5" Name="toTextBox">
+        </TextBox>
+        <Button Content="Add Task" Grid.Column="1" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
